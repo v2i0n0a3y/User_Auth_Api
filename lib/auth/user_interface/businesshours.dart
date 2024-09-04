@@ -1,14 +1,82 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'package:sowlab_auth/auth/user_interface/Signup/page5/all_done.dart';
 
 class BusinessHour extends StatefulWidget {
-  const BusinessHour({super.key});
+
+  const BusinessHour({super.key,});
 
   @override
   State<BusinessHour> createState() => _BusinessHourState();
 }
 
 class _BusinessHourState extends State<BusinessHour> {
+
+  final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController businessNameController = TextEditingController();
+  final TextEditingController informalNameController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
+  final TextEditingController zipcodeController = TextEditingController();
+
+  late final String? selectedState;
+
+
+  Future<void> _signUp() async {
+    if (_formKey.currentState!.validate()) {
+      String url = 'sowlab.com/assignment/user/register'; // Replace with your API endpoint
+
+      var request = http.MultipartRequest('POST', Uri.parse(url));
+
+      request.fields['full_name'] = nameController.text;
+      request.fields['email'] = emailController.text;
+      request.fields['phone'] = phoneController.text;
+      request.fields['password'] = passwordController.text;
+      request.fields['business_name'] = businessNameController.text;
+      request.fields['informal_name'] = informalNameController.text;
+      request.fields['address'] = addressController.text;
+      request.fields['city'] = cityController.text;
+      request.fields['state'] = selectedState.toString();
+      request.fields['zip_code'] = zipcodeController.text;
+
+      // Adding Business Hours as JSON string
+      request.fields['business_hours'] = jsonEncode({
+        "mon": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "tue": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "wed": ["8:00am - 10:00am", "10:00am - 1:00pm", "1:00pm - 4:00pm"],
+        "thu": ["8:00am - 10:00am", "10:00am - 1:00pm", "1:00pm - 4:00pm"],
+        "fri": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "sat": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "sun": ["8:00am - 10:00am"]
+      });
+
+      try {
+        var response = await request.send();
+
+        if (response.statusCode == 200) {
+          var responseData = await response.stream.bytesToString();
+          var result = jsonDecode(responseData);
+          // Handle success
+          print('Sign Up Successful: $result');
+        } else {
+          // Handle failure
+          print('Failed to sign up: ${response.statusCode}');
+        }
+      } catch (e) {
+        print('Error: $e');
+      }
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -239,7 +307,9 @@ class _BusinessHourState extends State<BusinessHour> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                        onPressed: (){}, icon: Icon(Icons.arrow_back)),
+                        onPressed: (){
+                          Navigator.pop(context);
+                        }, icon: Icon(Icons.arrow_back)),
                     SizedBox(
                       height: 50,
                       width: 200,
@@ -248,6 +318,7 @@ class _BusinessHourState extends State<BusinessHour> {
                               backgroundColor: Color(0xFFD56C60)
                           ),
                           onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>AllDone()));
 
                           },
                           child: Text("Submit", style: GoogleFonts.beVietnamPro(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),)),

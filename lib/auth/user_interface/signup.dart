@@ -1,8 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sowlab_auth/auth/user_interface/login.dart';
-
-import 'forminfo.dart';
+import 'farminfo.dart';
+import 'package:http/http.dart' as http;
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -13,11 +15,42 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
 
+  final _formKey = GlobalKey<FormState>();
+
+
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController rePasswordController = TextEditingController();
+
+  Future<void> _signUp() async {
+    if (_formKey.currentState!.validate()) {
+      String url = 'sowlab.com/assignment/user/register'; // Replace with your API endpoint
+
+      var request = http.MultipartRequest('POST', Uri.parse(url));
+
+      request.fields['full_name'] = nameController.text;
+      request.fields['email'] = emailController.text;
+      request.fields['phone'] = phoneController.text;
+      request.fields['password'] = passwordController.text;
+
+      try {
+        var response = await request.send();
+
+        if (response.statusCode == 200) {
+          var responseData = await response.stream.bytesToString();
+          var result = jsonDecode(responseData);
+          // Handle success
+          print('Sign Up Successful: $result');
+        } else {
+          // Handle failure
+          print('Failed to sign up: ${response.statusCode}');
+        }
+      } catch (e) {
+        print('Error: $e');
+      }
+    }
+  }
 
 
   @override
@@ -215,7 +248,7 @@ class _SignUpState extends State<SignUp> {
                   height: 50,
                   width: 400,
                   child: TextField(
-                    controller: rePasswordController,
+                    controller: passwordController,
                     style:GoogleFonts.beVietnamPro(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
@@ -234,9 +267,6 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 SizedBox(height: 20,),
-
-
-
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -262,7 +292,7 @@ class _SignUpState extends State<SignUp> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => FarmInfo(
-                                  rePasswordController: rePasswordController,
+                                  rePasswordController: passwordController,
                                   nameController: nameController,
                                   emailController: emailController,
                                   phoneController: phoneController,

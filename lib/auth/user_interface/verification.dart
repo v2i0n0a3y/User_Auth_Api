@@ -42,18 +42,10 @@ class _VerificationPageState extends State<VerificationPage> {
     );
 
     if (result != null) {
-      // Handle the selected file
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //   SnackBar(content: Text('File selected: ${result.files.single.name}')),
-      // );
-      //
 
       setState(() {
          _fileName = result.files.single.name;
       });
-
-
-
 
     } else {
       // User canceled the picker

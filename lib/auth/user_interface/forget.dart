@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
-import 'package:sowlab_auth/auth/user_interface/login.dart';
+import 'package:sowlab_auth/auth/user_interface/Login/login_design.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
@@ -73,7 +73,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 SizedBox(height: 15),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginDesign()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginDesignForm()));
                   },
                   child: RichText(
                     text: TextSpan(

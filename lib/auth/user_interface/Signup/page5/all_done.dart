@@ -55,7 +55,10 @@ class _AllDoneState extends State<AllDone> {
                       onPressed: (){
 
                       },
-                      child: Text("Got it", style: GoogleFonts.beVietnamPro(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),)),
+                      child: Text("Got it",
+                        style: GoogleFonts.beVietnamPro(fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),)),
                 ),
 
               ],

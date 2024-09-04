@@ -116,7 +116,7 @@ class _FarmInfoState extends State<FarmInfo> {
                     ),
                     decoration: InputDecoration(
                       prefixIcon: Icon(
-                        Icons.face,
+                        Icons.insert_emoticon,
                         color: Colors.black54,
                       ),
                       hintText: "Informal Name",
