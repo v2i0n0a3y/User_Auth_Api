@@ -6,6 +6,7 @@ import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
 import 'package:http/http.dart' as http;
+import 'package:sowlab_auth/auth/Login/resetPassword.dart';
 
 class VerifyOtp extends StatefulWidget {
   final String phoneNumber;
@@ -144,6 +145,7 @@ class _VerifyOtpState extends State<VerifyOtp> {
                       ),
                       onPressed: (){
                         _otp.length == 6 ? _verifyOtp : null;
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPassword()));
                       },
                       child: Text("Submit", style: GoogleFonts.beVietnamPro(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),)),
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sowlab_auth/auth/Login/login.dart';
 
 class AllDone extends StatefulWidget {
   const AllDone({super.key});
@@ -53,6 +54,7 @@ class _AllDoneState extends State<AllDone> {
                           backgroundColor: Color(0xFFD56C60)
                       ),
                       onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginDesign()));
 
                       },
                       child: Text("Got it",
@@ -66,7 +68,6 @@ class _AllDoneState extends State<AllDone> {
           ),
         ),
       ),
-
     );
   }
 }

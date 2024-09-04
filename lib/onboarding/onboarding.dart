@@ -109,7 +109,9 @@ class _OnbordingState extends State<Onbording> {
                                 child: TextButton(
                                   child: Text(
                                     currentIndex == contents.length - 1 ? "Login" : "Login" ,
-                                    style: GoogleFonts.beVietnamPro(fontSize: 14,decoration: TextDecoration.underline,fontWeight: FontWeight.w500, color: Colors.black),
+                                    style: GoogleFonts.beVietnamPro(fontSize: 14,
+                                        decoration: TextDecoration.underline,
+                                        fontWeight: FontWeight.w500, color: Colors.black),
                                   ),
                                   onPressed: () {
                                     if (currentIndex == contents.length - 1) {

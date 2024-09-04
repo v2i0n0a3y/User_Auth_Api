@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
+import 'package:sowlab_auth/auth/Login/verifyotp.dart';
 
 import 'login.dart';
 
@@ -134,7 +135,11 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       backgroundColor: Color(0xFFD56C60),
                     ),
                     onPressed: () {
-                      _sendOtp(); // Make sure the function is called
+                      _sendOtp();
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context)=>VerifyOtp(phoneNumber: _phoneController.text,)));
+
+                      // Make sure the function is called
                     },
                     child: Text(
                       "Send Code",

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
+import 'package:sowlab_auth/auth/Login/login.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({super.key});
@@ -148,6 +149,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                         } else {
                           print("Password not Reset");
                         }
+
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginDesign()));
                       },
                       child: Text("Submit",
                         style: GoogleFonts.beVietnamPro(fontSize: 18,
