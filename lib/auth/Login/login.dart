@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
-import 'package:sowlab_auth/auth/user_interface/signup.dart';
 
+import '../Signup/page1/signup_view.dart';
 import 'forget.dart';
 
 class LoginDesign extends StatefulWidget {
@@ -80,7 +80,7 @@ class _LoginDesignState extends State<LoginDesign> {
                 SizedBox(height: 20,),
                 InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpView()));
 
                   },
                   child: RichText(

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:sowlab_auth/auth/user_interface/Signup/page1/signup_model.dart';
+import 'package:sowlab_auth/auth/Signup/page1/signup_model.dart';
 
 class ApiServiceClass {
   static const String _baseUrl = 'https://sowlab.com/assignment/user/register';

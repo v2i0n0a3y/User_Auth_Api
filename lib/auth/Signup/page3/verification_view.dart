@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sowlab_auth/auth/user_interface/Signup/page3/verification_view_model.dart';
+import 'package:sowlab_auth/auth/Signup/page3/verification_view_model.dart';
+
+import '../page4/businesshours.dart';
+
 
 class VerificationPageView extends StatelessWidget {
   final TextEditingController nameController;
@@ -155,7 +158,9 @@ class VerificationPageView extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFFD56C60),
                           ),
-                          onPressed: () => Provider.of<VerificationViewModel>(context, listen: false).signUp(context),
+                          onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>BusinessHour()));
+                          },
                           child: Text(
                             "Continue",
                             style: GoogleFonts.beVietnamPro(

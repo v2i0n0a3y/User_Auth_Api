@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:sowlab_auth/auth/user_interface/Signup/page3/verification_model.dart';
+import 'package:sowlab_auth/auth/Signup/page3/verification_model.dart';
 
 class VerificationViewModel extends ChangeNotifier {
   VerificationModel _model = VerificationModel();

@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
-import 'package:sowlab_auth/auth/user_interface/Signup/page5/all_done.dart';
+
+import '../page5/all_done.dart';
 
 class BusinessHour extends StatefulWidget {
 
@@ -164,19 +165,27 @@ class _BusinessHourState extends State<BusinessHour> {
                       height: 35,
                       width: 35,
                       decoration: BoxDecoration(
-                          color: Color(0xFFD56C60),
+                        border: Border.all(
+                        color: Colors.black.withOpacity(.3), // Border color
+                        width: 1.0, // Border width
+                      ),
+                          color: Colors.white,
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(10)
                       ),
                       child: IconButton(
                         onPressed: (){},
-                        icon: Text("TH", style: GoogleFonts.beVietnamPro(fontSize: 14, fontWeight: FontWeight.w500),),),
+                        icon: Text("Th", style: GoogleFonts.beVietnamPro(fontSize: 14, fontWeight: FontWeight.w500),),),
                     ),
                     Container(
                       height: 35,
                       width: 35,
                       decoration: BoxDecoration(
-                          color: Color(0xFFD56C60),
+                          border: Border.all(
+                            color: Colors.black.withOpacity(.3), // Border color
+                            width: 1.0, // Border width
+                          ),
+                          color: Colors.white,
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(10)
                       ),
@@ -188,7 +197,11 @@ class _BusinessHourState extends State<BusinessHour> {
                       height: 35,
                       width: 35,
                       decoration: BoxDecoration(
-                          color: Color(0xFFD56C60),
+                          border: Border.all(
+                            color: Colors.black.withOpacity(.3), // Border color
+                            width: 1.0, // Border width
+                          ),
+                          color: Colors.white,
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(10)
                       ),
@@ -200,7 +213,11 @@ class _BusinessHourState extends State<BusinessHour> {
                       height: 35,
                       width: 35,
                       decoration: BoxDecoration(
-                          color: Color(0xFFD56C60),
+                          border: Border.all(
+                            color: Colors.black.withOpacity(.3), // Border color
+                            width: 1.0, // Border width
+                          ),
+                          color: Colors.white,
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(10)
                       ),

@@ -1,6 +1,6 @@
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
-import 'package:sowlab_auth/auth/user_interface/Login/login_design.dart';
+import '../auth/Login/login.dart';
 import 'contain_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -116,7 +116,7 @@ class _OnbordingState extends State<Onbording> {
                                       Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (_) => LoginDesignForm(),
+                                          builder: (_) => LoginDesign(),
                                         ),
                                       );
                                     }

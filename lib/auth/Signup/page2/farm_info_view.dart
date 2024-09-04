@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../verification.dart';
 import '../page3/verification_view.dart';
 import 'farm_info_model.dart';
 import 'farmi_Viewmodel.dart';

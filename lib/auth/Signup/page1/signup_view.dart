@@ -2,10 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:sowlab_auth/auth/user_interface/Login/login_design.dart';
-import 'package:sowlab_auth/auth/user_interface/Signup/page1/signup_viewmodel.dart';
-import 'package:sowlab_auth/auth/user_interface/Signup/page2/farm_info_view.dart';
-import '../../farminfo.dart';
+import 'package:sowlab_auth/auth/Signup/page1/signup_viewmodel.dart';
+import '../../Login/login.dart';
+import '../page2/farm_info_view.dart';
 
 class SignUpView extends StatelessWidget {
   @override
@@ -92,7 +91,7 @@ class SignUpView extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const LoginDesignForm()),
+                                      builder: (context) => const LoginDesign()),
                                 );
                               },
                               child: Text(
